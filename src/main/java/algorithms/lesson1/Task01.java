@@ -5,7 +5,7 @@ package algorithms.lesson1;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class task01 {
+public class Task01 {
 
     public static void main(String[] args) {
         int position = 7;
@@ -20,7 +20,7 @@ public class task01 {
     public static int fibonacci(int n, AtomicInteger counter) {
         counter.incrementAndGet();
         if (n < 1) {
-            throw new RuntimeException("Incorrect number!");
+            throw new IllegalArgumentException("Incorrect number!");
         }
         if (n == 1) {
             return 0;
