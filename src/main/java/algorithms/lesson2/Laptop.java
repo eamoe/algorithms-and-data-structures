@@ -66,14 +66,14 @@ public class Laptop implements Comparable<Laptop> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Laptop laptop = (Laptop) o;
-        return brand.equals(laptop.brand)
-                && price == laptop.price
-                && ram == laptop.ram;
+        return price == laptop.price
+                && ram == laptop.ram
+                && brand.equals(laptop.brand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, price, ram);
+        return Objects.hash(price, ram, brand);
     }
 
     @Override
@@ -88,9 +88,8 @@ public class Laptop implements Comparable<Laptop> {
     @Override
     public int compareTo(@NotNull Laptop o) {
         if (this.price >= o.price
-                && (this.brand.equalsIgnoreCase(o.brand) || o.brand.isEmpty())
-                && this.ram >= o.ram) {
-
+                && this.ram >= o.ram
+                && (this.brand.equalsIgnoreCase(o.brand) || o.brand.isEmpty())) {
             return 1;
         }
         else {
