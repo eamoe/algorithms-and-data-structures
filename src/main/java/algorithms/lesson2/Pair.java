@@ -1,24 +1,28 @@
 package algorithms.lesson2;
 
-public class Pair {
+public class Pair<K, V> {
 
-    private int key;
-    private String value;
+    private K key;
+    private V value;
 
-    public Pair(int key, String value) {
+    public Pair(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
-    int getKey() {
+    K getKey() {
         return key;
     }
 
-    String getValue() {
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    V getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(V value) {
             this.value = value;
         }
         @Override

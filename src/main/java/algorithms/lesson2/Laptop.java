@@ -10,10 +10,10 @@ public class Laptop implements Comparable<Laptop> {
     private int id;
     private double price;
     private int ram;
-    private String brand;
+    private Pair<Integer, String> brand;
 
     public Laptop(int id,
-                  String brand,
+                  Pair<Integer, String> brand,
                   double price,
                   int ram) {
         this.id = id;
@@ -22,7 +22,7 @@ public class Laptop implements Comparable<Laptop> {
         this.ram = ram;
     }
 
-    public Laptop(String brand,
+    public Laptop(Pair<Integer, String> brand,
                   double price,
                   int ram) {
         this.brand = brand;
@@ -38,11 +38,11 @@ public class Laptop implements Comparable<Laptop> {
         this.id = id;
     }
 
-    public String getBrand() {
+    public Pair<Integer, String> getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Pair<Integer, String> brand) {
         this.brand = brand;
     }
 
@@ -70,7 +70,7 @@ public class Laptop implements Comparable<Laptop> {
         return new EqualsBuilder()
                 .append(price, laptop.price)
                 .append(ram, laptop.ram)
-                .append(brand, laptop.brand)
+                .append(brand.getKey(), laptop.brand.getKey())
                 .isEquals();
     }
 
@@ -79,7 +79,7 @@ public class Laptop implements Comparable<Laptop> {
         return new HashCodeBuilder()
                 .append(price)
                 .append(ram)
-                .append(brand)
+                .append(brand.getKey())
                 .toHashCode();
     }
 
@@ -97,7 +97,7 @@ public class Laptop implements Comparable<Laptop> {
         return new CompareToBuilder()
                 .append(this.price, o.price)
                 .append(this.ram, o.ram)
-                .append(this.brand, o.brand)
+                .append(this.brand.getKey(), o.brand.getKey())
                 .toComparison();
     }
 

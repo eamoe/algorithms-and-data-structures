@@ -15,11 +15,11 @@ public class Task01 {
 
         Laptop[] laptops  = new Laptop[5];
 
-        laptops[0] = new Laptop(0, "Lenovo", 1999.99, 4);
-        laptops[1] = new Laptop(1, "Aenovo", 1999.99, 4);
-        laptops[2] = new Laptop(2, "Aenovo", 1999.99, 7);
-        laptops[3] = new Laptop(3, "Lenovo", 1999.99, 4);
-        laptops[4] = new Laptop(4, "Lenovo", 1999.99, 4);
+        laptops[0] = new Laptop(0, new Pair<>(0, "Lenovo"), 1999.99, 4);
+        laptops[1] = new Laptop(1, new Pair<>(3, "Aenovo"), 1999.99, 4);
+        laptops[2] = new Laptop(2, new Pair<>(2, "Aenovo"), 1999.99, 4);
+        laptops[3] = new Laptop(3, new Pair<>(1, "Lenovo"), 1999.99, 4);
+        laptops[4] = new Laptop(4, new Pair<>(4, "Lenovo"), 1999.99, 4);
 
         Arrays.sort(laptops);
 
