@@ -1,8 +1,9 @@
 package algorithms.lesson2;
 
+import org.apache.commons.lang3.builder.CompareToBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 public class Laptop implements Comparable<Laptop> {
 
@@ -66,14 +67,20 @@ public class Laptop implements Comparable<Laptop> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Laptop laptop = (Laptop) o;
-        return price == laptop.price
-                && ram == laptop.ram
-                && brand.equals(laptop.brand);
+        return new EqualsBuilder()
+                .append(price, laptop.price)
+                .append(ram, laptop.ram)
+                .append(brand, laptop.brand)
+                .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, ram, brand);
+        return new HashCodeBuilder()
+                .append(price)
+                .append(ram)
+                .append(brand)
+                .toHashCode();
     }
 
     @Override
@@ -87,14 +94,11 @@ public class Laptop implements Comparable<Laptop> {
 
     @Override
     public int compareTo(@NotNull Laptop o) {
-        if (this.price >= o.price
-                && this.ram >= o.ram
-                && (this.brand.equalsIgnoreCase(o.brand) || o.brand.isEmpty())) {
-            return 1;
-        }
-        else {
-            return -1;
-        }
-
+        return new CompareToBuilder()
+                .append(this.price, o.price)
+                .append(this.ram, o.ram)
+                .append(this.brand, o.brand)
+                .toComparison();
     }
+
 }
