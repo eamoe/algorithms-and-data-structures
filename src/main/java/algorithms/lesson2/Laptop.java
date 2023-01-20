@@ -79,10 +79,10 @@ public class Laptop implements Comparable<Laptop> {
     @Override
     public String toString() {
         return '\n' + "Laptop ".toUpperCase() +
-                "ID=" + id + '\n' +
-                "Brand='" + brand + '\'' + '\n' +
-                "Price='" + price + '\'' + '\n' +
-                "Ram='" + ram + '\'' + '\n';
+                "ID=" + id + "; " +
+                "Brand='" + brand + '\'' + "; " +
+                "Price='" + price + '\'' + "; " +
+                "Ram='" + ram + '\'';
     }
 
     @Override

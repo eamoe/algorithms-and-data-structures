@@ -8,5 +8,22 @@
 
 package algorithms.lesson2;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Task01 {
+    public static void main(String[] args) {
+
+        Set<Laptop> laptops = new HashSet<>();
+        laptops.add(new Laptop("Lenovo", 1999.99, 16));
+        laptops.add(new Laptop("Lenovo", 1999.99, 4));
+        laptops.add(new Laptop("Lenovo", 1999.99, 7));
+        laptops.add(new Laptop("Lenovo", 1999.99, 1));
+        laptops.add(new Laptop("Lenovo", 1999.99, 32));
+
+        for (Laptop laptop : laptops) {
+            System.out.println(laptop);
+        }
+
+    }
 }
