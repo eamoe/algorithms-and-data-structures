@@ -1,4 +1,4 @@
-// Класс Notebook содержит поля:
+// Класс Laptop содержит поля:
 //
 //Стоимость - price, double [100, 200, 300, 400, 500, 600, 700, 800]
 //Оперативная память - ram, integer [4, 8, 16, 20, 24, 28, 32]
@@ -26,6 +26,8 @@ public class Task01 {
         for (Laptop laptop : laptops) {
             System.out.println(laptop);
         }
+
+
 
     }
 }
