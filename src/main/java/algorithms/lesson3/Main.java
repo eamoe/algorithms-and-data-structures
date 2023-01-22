@@ -1,7 +1,8 @@
 package algorithms.lesson3;
 
-public class Main {
+import java.util.Iterator;
 
+public class Main {
     public static void main(String[] args)
     {
         ListNode listNode = new ListNode();
@@ -16,16 +17,20 @@ public class Main {
         System.out.println("Removed node value is " + removedNode.getValue());
 
         System.out.print("Linked list is ");
-        for (ListNode.Node node = listNode.getHead(); node != null; node = node.getNext()) {
-            System.out.print(node.getValue() + " --> ");
+        for (Integer value : listNode) {
+            System.out.print(value + " --> ");
         }
+
         System.out.println();
 
-        System.out.print("Reversed linked list is ");
         ListNode.Node newHead = listNode.reverse(listNode.getHead());
-        for (ListNode.Node node = newHead; node != null; node = node.getNext())
-            System.out.print(node.getValue() + " --> ");
+        System.out.println("New head value is " + newHead.getValue());
 
+        System.out.print("Reversed linked list is ");
+        Iterator<Integer> resultIterator = listNode.iterator();
+        while (resultIterator.hasNext()) {
+            Integer value = resultIterator.next();
+            System.out.print(value + " --> ");
+        }
     }
-
 }

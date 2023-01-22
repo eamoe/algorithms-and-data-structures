@@ -1,6 +1,12 @@
 package algorithms.lesson3;
 
-public class ListNode {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class ListNode implements Iterable<Integer> {
     Node head;
 
     public Node getHead() {
@@ -34,6 +40,7 @@ public class ListNode {
             current = next;
         }
         node = previous;
+        this.head = previous;
         return node;
     }
 
@@ -46,6 +53,37 @@ public class ListNode {
             currentNode = currentNode.next;
         }
         return null;
+    }
+
+    @NotNull
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<Integer>() {
+            Node current = head;
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
+            @Override
+            public Integer next() {
+                if (hasNext()) {
+                    Integer value = current.value;
+                    current = current.next;
+                    return value;
+                }
+                return null;
+            }
+        };
+    }
+
+    @Override
+    public void forEach(Consumer<? super Integer> action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Integer> spliterator() {
+        return Iterable.super.spliterator();
     }
 
     public static class Node {
