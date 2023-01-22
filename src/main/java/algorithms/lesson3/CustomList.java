@@ -1,9 +1,23 @@
 package algorithms.lesson3;
 
-public class List {
-
+public class CustomList {
     Node head;
     Node tail;
+
+    public Node getHead() {
+        return head;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
+
+    public void addFirst(int value) {
+        Node node = new Node();
+        node.value = value;
+        node.next = head;
+        head = node;
+    }
 
     public void add(int value) {
         Node node = new Node();
@@ -32,6 +46,15 @@ public class List {
             next.previous = newNode;
             newNode.next = next;
         }
+    }
+
+    public Node removeFirst(Node node) {
+        if (head == null) {
+            return null;
+        }
+        Node temp = head;
+        head = head.next;
+        return temp;
     }
 
     public void delete(Node node) {
@@ -81,10 +104,22 @@ public class List {
         return null;
     }
 
-    public class Node {
+    public static class Node {
         int value;
         Node next;
         Node previous;
+
+        public int getValue() {
+            return value;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public Node getPrevious() {
+            return previous;
+        }
     }
 
 }
