@@ -15,8 +15,17 @@ public class Main {
         ListNode.Node removedNode = listNode.removeFirst(listNode.getHead());
         System.out.println("Removed node value is " + removedNode.getValue());
 
-        for (ListNode.Node node = listNode.getHead(); node != null; node = node.getNext())
-            System.out.print(node.getValue() + " ");
+        System.out.print("Linked list is ");
+        for (ListNode.Node node = listNode.getHead(); node != null; node = node.getNext()) {
+            System.out.print(node.getValue() + " --> ");
+        }
+        System.out.println();
+
+        System.out.print("Reversed linked list is ");
+        ListNode.Node newHead = listNode.reverse(listNode.getHead());
+        for (ListNode.Node node = newHead; node != null; node = node.getNext())
+            System.out.print(node.getValue() + " --> ");
+
     }
 
 }

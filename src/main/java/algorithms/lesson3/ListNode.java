@@ -23,26 +23,19 @@ public class ListNode {
         return removedNode;
     }
 
-    public static Node reverse(Node node) {
+    public Node reverse(Node node) {
+        Node previous = null;
+        Node current = node;
+        Node next;
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        node = previous;
         return node;
     }
-
-    /* public void revert() {
-        Node currentNode = head;
-        while (currentNode != null) {
-            Node next = currentNode.next;
-            Node previous  = currentNode.previous;
-            currentNode.next = previous;
-            currentNode.previous = next;
-            if (previous == null) {
-                tail = currentNode;
-            }
-            if (next == null) {
-                head = currentNode;
-            }
-            currentNode = next;
-        }
-    }*/
 
     public Node find(int value) {
         Node currentNode = head;
