@@ -1,15 +1,10 @@
 package algorithms.lesson3;
 
-public class CustomList {
+public class ListNode {
     Node head;
-    Node tail;
 
     public Node getHead() {
         return head;
-    }
-
-    public Node getTail() {
-        return tail;
     }
 
     public void addFirst(int value) {
@@ -19,64 +14,20 @@ public class CustomList {
         head = node;
     }
 
-    public void add(int value) {
-        Node node = new Node();
-        node.value = value;
-        if (head == null) {
-            head = node;
-            tail = node;
-        }
-        else {
-            tail.next = node;
-            node.previous = tail;
-            tail = node;
-        }
-    }
-
-    public void add(int value, Node node) {
-        Node next = node.next;
-        Node newNode = new Node();
-        newNode.value = value;
-        node.next = newNode;
-        newNode.previous = node;
-        if (next == null) {
-            tail = newNode;
-        }
-        else {
-            next.previous = newNode;
-            newNode.next = next;
-        }
-    }
-
     public Node removeFirst(Node node) {
         if (head == null) {
             return null;
         }
-        Node temp = head;
+        Node removedNode = head;
         head = head.next;
-        return temp;
+        return removedNode;
     }
 
-    public void delete(Node node) {
-        Node previous = node.previous;
-        Node next = node.next;
-        if (previous == null) {
-            next.previous = null;
-            head = next;
-        }
-        else {
-            if (next == null) {
-                previous.next = null;
-                tail = previous;
-            }
-            else {
-                previous.next = next;
-                next.previous = previous;
-            }
-        }
+    public static Node reverse(Node node) {
+        return node;
     }
 
-    public void revert() {
+    /* public void revert() {
         Node currentNode = head;
         while (currentNode != null) {
             Node next = currentNode.next;
@@ -91,7 +42,7 @@ public class CustomList {
             }
             currentNode = next;
         }
-    }
+    }*/
 
     public Node find(int value) {
         Node currentNode = head;
